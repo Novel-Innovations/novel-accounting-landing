@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="assets/img/favicon.png"/>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>NOVEL - The much needed Accounting Software</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    
-        
-        <!-- <script>
+
+
+    <!-- <script>
             const scriptURL = 'https://script.google.com/macros/s/AKfycby8FvJi1JDuDDTA9HukmTpL5mNbMntFL4BaQbPou5vHoBPEReYpasKiqcqCkHpID0Ne0Q/exec'
             const form = document.forms['myForm']
             form.addEventListener('submit', e => {
@@ -24,29 +25,31 @@
     <script>
         function emailForm() {
             var input = $("#myForm").serializeArray();
-        $.ajax({
-        url:'https://api.apispreadsheets.com/data/18255/',
-        type:'post',
-        data:$("#myForm").serializeArray(),
-        success: function(){
-          alert("Form Data Submitted :)")
-        },
-        error: function(){
-          alert("There was an error :(")
+            $.ajax({
+                url: 'https://api.apispreadsheets.com/data/18255/',
+                type: 'post',
+                data: $("#myForm").serializeArray(),
+                success: function() {
+                    alert("Form Data Submitted :)")
+                },
+                error: function() {
+                    alert("There was an error :(")
+                }
+            });
         }
-    });
-    }
     </script>
 </head>
+
 <body class="font-sans antialiased">
     <main class="">
-        <header class="container mx-auto mt-6 px-4 flex justify-between items-center header"><!-- Start Header -->
+        <header class="container mx-auto mt-6 px-4 flex justify-between items-center header">
+            <!-- Start Header -->
             <div class="">
-                <a href="www.novelaccounting.co.uk" ><img class="logo" src="assets/img/Novel-logo.png" alt="Logo"></a>
+                <a href="/"><img class="logo" src="assets/img/Novel-logo.png" alt="Logo"></a>
             </div>
             <div class="flex items-center">
                 <div class="hidden md:block space-x-6 font-medium">
-                    <a href="#0" class="transition-colors duration-200">Features</a>
+                    <a href="#features" class="transition-colors duration-200">Features</a>
                     <!-- <a href="#0" class="hover:text-green-700 transition-colors duration-200">Prices</a> -->
                     <!-- <a href="#0" class=" transition-colors duration-200">About Us</a> -->
                     <a href="#0" class=" transition-colors duration-200">Contact Us</a>
@@ -60,9 +63,11 @@
                     </a>
                 </div> -->
             </div>
-        </header><!-- End Header -->
+        </header>
+        <!-- End Header -->
 
-        <section class="container mx-auto px-4 py-12 sm:py-16 md:py-20 xl:py-28"><!-- Start Hero -->
+        <section class="container mx-auto px-4 py-12 sm:py-16 md:py-20 xl:py-28">
+            <!-- Start Hero -->
             <div class="grid lg:grid-cols-2 gap-10 items-center">
                 <div class="space-y-8 lg:space-y-12">
                     <div class="space-y-6">
@@ -70,25 +75,26 @@
                         <p class="max-w-sm text-xl">Enter your details below to be the first to know when as we launch.</p>
                     </div>
                     <form id="myForm">
-                    
-                        <div class = "newTextBlock">
-                            <input name="full_name" class="w-full sm:w-72 border-2 sm: rounded-r py-4 px-6 rounded-lg sm:rounded sm:rounded-tl-lg sm:rounded-bl-lg " style = "margin: 10px 10px 10px 0;" type="text" placeholder="Your Name">
-                            <input name= "country_name" class="w-full sm:w-72 border-2 sm: rounded-r py-4 px-6 rounded-lg sm:rounded sm:rounded-tl-lg sm:rounded-bl-lg " style = "margin: 10px 0;" type="text" placeholder="Your Country">
+
+                        <div class="newTextBlock">
+                            <input name="full_name" class="w-full sm:w-72 border-2 sm: rounded-r py-4 px-6 rounded-lg sm:rounded sm:rounded-tl-lg sm:rounded-bl-lg " style="margin: 10px 10px 10px 0;" type="text" placeholder="Your Name">
+                            <input name="country_name" class="w-full sm:w-72 border-2 sm: rounded-r py-4 px-6 rounded-lg sm:rounded sm:rounded-tl-lg sm:rounded-bl-lg " style="margin: 10px 0;" type="text" placeholder="Your Country">
                         </div>
                         <div class="flex flex-col sm:flex-row space-y-2.5 sm:space-y-0">
-                            <input name = "email_address" class="w-full sm:w-72 border-2 sm:border-r-0 py-4 px-6 rounded-lg sm:rounded-none sm:rounded-tl-lg sm:rounded-bl-lg outline-none " type="text" placeholder="Your email address">
-                            <button type="submit" onclick="emailForm()"  class= " buttonStyle transition-colors duration-300 py-4 px-6 rounded-lg sm:rounded-none sm:rounded-tr-lg sm:rounded-br-lg text-white font-semibold">Submit</button>
-                        </div>    
+                            <input name="email_address" class="w-full sm:w-72 border-2 sm:border-r-0 py-4 px-6 rounded-lg sm:rounded-none sm:rounded-tl-lg sm:rounded-bl-lg outline-none " type="text" placeholder="Your email address">
+                            <button type="submit" onclick="emailForm()" class=" buttonStyle transition-colors duration-300 py-4 px-6 rounded-lg sm:rounded-none sm:rounded-tr-lg sm:rounded-br-lg text-white font-semibold">Submit</button>
+                        </div>
                     </form>
                 </div>
                 <div class="">
                     <img src="assets/img/Novel_Banner.png" alt="Illustration">
                 </div>
             </div>
-        </section><!-- End Hero -->
-        
+        </section>
+        <!-- End Hero -->
 
-        <section class="bg-gray-100">
+
+        <section id="features" class="bg-gray-100">
             <div class="container mx-auto px-4 py-12 sm:py-16 md:py-20 xl:py-28">
                 <div class="space-y-4 text-center mb-10 lg:mb-16">
                     <h2 class="text-4xl md:text-5xl font-semibold">What we are doing differently?</h2>
@@ -102,7 +108,7 @@
                               </svg>
                         </div>
                         <div class="space-y-4">
-                            <h4 class="text-2xl md:text-3xl font-semibold">Data Entry</h4>                            
+                            <h4 class="text-2xl md:text-3xl font-semibold">Data Entry</h4>
                             <p> Entering transactions will be so simple, a ten-year old can do it. </p>
                         </div>
                     </div>
@@ -158,7 +164,7 @@
                 </div>
             </div>
         </section> -->
-        
+
 
         <!-- <section class="container mx-auto sm:px-4">
             <div class="bg-green-600 px-4 py-12 sm:py-16 md:py-20 xl:py-28 sm:rounded-lg text-white">
@@ -177,17 +183,17 @@
             <hr class="mb-6">
             <div class="flex flex-col md:flex-row justify-between space-y-6 md:space-y-0 mb-6">
                 <div class="flex-1 ContactUsStyle">
-                    <h1 > Contact Us </h1>
+                    <h1> Contact Us </h1>
                     <label> info@novelaccounting.co.uk</label> <br />
                     <label> Tel: +447448125771</label>
                     <!-- <a href="/" class=""><img class="logo" src="assets/img/Novel-logo.png" alt="Logo"></a> -->
                 </div>
                 <div class="flex md:justify-end flex-1 space-x-4">
                     <a href="#">
-                        <i class='text-2xl transition duration-500 ease-in-out transform hover:scale-125 bx bxl-facebook-circle' ></i>
+                        <i class='text-2xl transition duration-500 ease-in-out transform hover:scale-125 bx bxl-facebook-circle'></i>
                     </a>
                     <a href="#">
-                        <i class='text-2xl transition duration-500 ease-in-out transform hover:scale-125 bx bxl-twitter' ></i>
+                        <i class='text-2xl transition duration-500 ease-in-out transform hover:scale-125 bx bxl-twitter'></i>
                     </a>
                 </div>
             </div>
@@ -199,4 +205,5 @@
         </footer>
     </main>
 </body>
+
 </html>
