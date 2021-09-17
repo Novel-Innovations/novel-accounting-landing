@@ -12,18 +12,35 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
         function emailForm() {
-            var input = $("#myForm").serializeArray();
-            $.ajax({
-                url: 'https://api.apispreadsheets.com/data/18255/',
-                type: 'post',
-                data: $("#myForm").serializeArray(),
-                success: function() {
-                    alert("Form Data Submitted :)")
+            var $form = $("#myForm");
+            var data = getFormData($form);
+            var formSubmit = {
+                "url": "https://novel-database.herokuapp.com/v1/graphql",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                    "Content-Type": "application/json"
                 },
-                error: function() {
-                    alert("There was an error :(")
-                }
+                "data": JSON.stringify({
+                    query: "mutation MyMutation ($name: String!, $email: String!, $country: String!) {\n  insert_early_access_one(object: {name: $name, email: $email, country: $country}) {\n      id\n  }\n}\n",
+                    variables: data
+                })
+            };
+
+            $.ajax(formSubmit).done(function(response) {
+                alert("Success : " + JSON.stringify(response));
             });
+        }
+
+        function getFormData($form) {
+            var unindexed_array = $form.serializeArray();
+            var indexed_array = {};
+
+            $.map(unindexed_array, function(n, i) {
+                indexed_array[n['name']] = n['value'];
+            });
+
+            return indexed_array;
         }
     </script>
 </head>
@@ -57,11 +74,11 @@
                     <form id="myForm">
 
                         <div class="newTextBlock">
-                            <input name="full_name" class="w-full sm:w-72 border-2 sm: rounded-r py-4 px-6 rounded-lg sm:rounded sm:rounded-tl-lg sm:rounded-bl-lg " style="margin: 10px 10px 10px 0;" type="text" placeholder="Your Name">
-                            <input name="country_name" class="w-full sm:w-72 border-2 sm: rounded-r py-4 px-6 rounded-lg sm:rounded sm:rounded-tl-lg sm:rounded-bl-lg " style="margin: 10px 0;" type="text" placeholder="Your Country">
+                            <input name="name" value="test" class="w-full sm:w-72 border-2 sm: rounded-r py-4 px-6 rounded-lg sm:rounded sm:rounded-tl-lg sm:rounded-bl-lg " style="margin: 10px 10px 10px 0;" type="text" placeholder="Your Name">
+                            <input name="country" value="test" class="w-full sm:w-72 border-2 sm: rounded-r py-4 px-6 rounded-lg sm:rounded sm:rounded-tl-lg sm:rounded-bl-lg " style="margin: 10px 0;" type="text" placeholder="Your Country">
                         </div>
                         <div class="flex flex-col sm:flex-row space-y-2.5 sm:space-y-0">
-                            <input name="email_address" class="w-full sm:w-72 border-2 sm:border-r-0 py-4 px-6 rounded-lg sm:rounded-none sm:rounded-tl-lg sm:rounded-bl-lg outline-none " type="text" placeholder="Your email address">
+                            <input name="email" value="test" class="w-full sm:w-72 border-2 sm:border-r-0 py-4 px-6 rounded-lg sm:rounded-none sm:rounded-tl-lg sm:rounded-bl-lg outline-none " type="text" placeholder="Your email address">
                             <button type="submit" onclick="emailForm()" class=" buttonStyle transition-colors duration-300 py-4 px-6 rounded-lg sm:rounded-none sm:rounded-tr-lg sm:rounded-br-lg text-white font-semibold">Submit</button>
                         </div>
                     </form>
