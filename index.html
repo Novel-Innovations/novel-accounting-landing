@@ -28,6 +28,7 @@
             };
 
             $.ajax(formSubmit).done(function(response) {
+                $('#myForm')[0].reset();
                 alert("Success : " + JSON.stringify(response));
             });
         }
@@ -42,6 +43,13 @@
 
             return indexed_array;
         }
+        $(document).ready(function() {
+            $("#myForm").submit(function(e) {
+                e.preventDefault();
+                emailForm();
+                return false;
+            });
+        });
     </script>
 </head>
 
@@ -71,15 +79,15 @@
                         <h1 class="h1 text-4xl sm:text-6xl font-semibold"> Because micro-businesses <br>deserves simpler accounting.</h1>
                         <p class="max-w-sm text-xl">Enter your details below to be the first to know when as we launch.</p>
                     </div>
-                    <form id="myForm">
+                    <form method="POST" id="myForm">
 
                         <div class="newTextBlock">
-                            <input name="name" class="w-full sm:w-72 border-2 sm: rounded-r py-4 px-6 rounded-lg sm:rounded sm:rounded-tl-lg sm:rounded-bl-lg " style="margin: 10px 10px 10px 0;" type="text" placeholder="Your Name">
-                            <input name="country" class="w-full sm:w-72 border-2 sm: rounded-r py-4 px-6 rounded-lg sm:rounded sm:rounded-tl-lg sm:rounded-bl-lg " style="margin: 10px 0;" type="text" placeholder="Your Country">
+                            <input name="name" required class="w-full sm:w-72 border-2 sm: rounded-r py-4 px-6 rounded-lg sm:rounded sm:rounded-tl-lg sm:rounded-bl-lg " style="margin: 10px 10px 10px 0;" type="text" placeholder="Your Name">
+                            <input name="country" required class="w-full sm:w-72 border-2 sm: rounded-r py-4 px-6 rounded-lg sm:rounded sm:rounded-tl-lg sm:rounded-bl-lg " style="margin: 10px 0;" type="text" placeholder="Your Country">
                         </div>
                         <div class="flex flex-col sm:flex-row space-y-2.5 sm:space-y-0">
-                            <input name="email" class="w-full sm:w-72 border-2 sm:border-r-0 py-4 px-6 rounded-lg sm:rounded-none sm:rounded-tl-lg sm:rounded-bl-lg outline-none " type="text" placeholder="Your email address">
-                            <button type="button" onclick="emailForm()" class=" buttonStyle transition-colors duration-300 py-4 px-6 rounded-lg sm:rounded-none sm:rounded-tr-lg sm:rounded-br-lg text-white font-semibold">Submit</button>
+                            <input name="email" type="email" required class="w-full sm:w-72 border-2 sm:border-r-0 py-4 px-6 rounded-lg sm:rounded-none sm:rounded-tl-lg sm:rounded-bl-lg outline-none " type="text" placeholder="Your email address">
+                            <button type="submit" class=" buttonStyle transition-colors duration-300 py-4 px-6 rounded-lg sm:rounded-none sm:rounded-tr-lg sm:rounded-br-lg text-white font-semibold">Submit</button>
                         </div>
                     </form>
                 </div>
