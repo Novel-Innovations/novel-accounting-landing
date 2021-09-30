@@ -29,10 +29,10 @@
 
             $.ajax(formSubmit).done(function(response) {
                 $('#myForm')[0].reset();
-                if (response.insert_early_access.returning.length > 0) {
+                if (response.data.insert_early_access_one.id) {
                     alert("We received your request. Our team will reach out to you soon.");
                 } else {
-                    alert("There was some problem submitting your details. Could you please send an email to info@novelaccounting.co.uk");
+                    alert("There was some problem submitting your details. Could you please send an email to ")
                 }
             });
         }
