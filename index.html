@@ -8,7 +8,6 @@
     <link rel="icon" type="image/png" href="assets/img/favicon.png" />
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>NOVEL - The much needed Accounting Software</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
         function emailForm() {
             var $form = $("#myForm");
@@ -46,13 +45,20 @@
 
             return indexed_array;
         }
-        $(document).ready(function() {
+
+        var scriptElem = document.createElement("script");
+
+        scriptElem.onload = function() {
             $("#myForm").submit(function(e) {
                 e.preventDefault();
                 emailForm();
                 return false;
             });
-        });
+        };
+
+        scriptElem.src = "https://code.jquery.com/jquery-3.6.0.min.js";
+
+        document.getElementsByTagName("head")[0].appendChild(scriptElem);
     </script>
 </head>
 
