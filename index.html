@@ -29,7 +29,11 @@
 
             $.ajax(formSubmit).done(function(response) {
                 $('#myForm')[0].reset();
-                alert("Success : " + JSON.stringify(response));
+                if (response.insert_early_access.returning.length > 0) {
+                    alert("We received your request. Our team will reach out to you soon.");
+                } else {
+                    alert("There was some problem submitting your details. Could you please send an email to info@novelaccounting.co.uk");
+                }
             });
         }
 
@@ -124,7 +128,7 @@
                               </svg>
                         </div>
                         <div class="space-y-4">
-                            <h4 class="text-2xl md:text-3xl font-semibold">Manufatcuring</h4>
+                            <h4 class="text-2xl md:text-3xl font-semibold">Manufacturing</h4>
                             <p>Keep track of what you made, what you used and, identify the right price.</p>
                         </div>
                     </div>
